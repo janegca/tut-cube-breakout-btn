@@ -1,0 +1,50 @@
+/* Styles for the breakout button component */
+.breakout-button {
+  /* ensures the button itself is not a positioned element*/
+  position: static;
+
+  padding: 0.6rem 2rem;
+
+  background: transparent;
+  color: currentColor;
+  border: 1px solid;
+
+  font: inherit;
+  font-weight: 600;
+
+  transition: background 100ms ease;
+}
+
+.breakout-button,
+.breakout-button::before {
+  cursor: pointer;
+}
+
+/* the 'breakout' element
+    it will be positioned relative to its nearest positioned ancestor, 
+    not to the button. It has no visual appearance.
+ */
+.breakout-button::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* effects */
+.breakout-button:focus {
+  outline: none;
+}
+
+.breakout-button:focus::before {
+  /* draws a white outline inside the parent when focus is set */
+  outline: 1px solid hsl(0, 0%, 100%);
+  outline-offset: -0.8rem;
+}
+
+.breakout-button:hover {
+  background: hsl(0, 0%, 20%);
+}
